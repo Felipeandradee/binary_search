@@ -21,9 +21,9 @@ function binary_search_iterative($elem, $array){
             return $middle;
         }
         if ($elem < $array[$middle])
-            $middle  = $top - 1;
+            $top = $middle - 1;
         else
-            $middle = $bot + 1;        
+            $bot = $middle + 1;        
     }
 
     return $elem.' not found.';

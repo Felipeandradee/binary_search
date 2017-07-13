@@ -4,18 +4,13 @@
 $numbers = array();
 $f = fopen("f10000_3.txt", "r");
 
-// Lê cada uma das linhas do arquivo
 while(!feof($f)) {
     $numbers[]= explode('; ', fgets($f))[1];
 }
 
 fclose($f);
 
-
-//$numbers = array(2, 3, 4, 5, 6, 13, 46,55);
-
 sort($numbers, SORT_NUMERIC);
-//print_r($numbers);
 
 function binary_search_iterative($elem, $array){
     $top = sizeof($array) -1;   //g(2, 0, 0)

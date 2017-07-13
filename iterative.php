@@ -16,13 +16,14 @@ function binary_search_iterative($elem, $array){
 
     while($bot <= $top)
     {
-        $p = floor(($top + $bot) / 2);
-        if ($array[$p] < $elem)
-            $bot = $p + 1;
-        elseif ($array[$p] > $elem)
-            $top = $p - 1;
+        $middle = floor(($top + $bot) / 2);
+        if ($elem == $array[$middle] ) {
+            return $middle;
+        }
+        if ($elem < $array[$middle])
+            $middle  = $top - 1;
         else
-            return $p;
+            $middle = $bot + 1;        
     }
 
     return $elem.' not found.';
@@ -33,17 +34,17 @@ echo binary_search_iterative(3, $numbers);
 
 
 function binary_search_recursive($elem, $array, $bot, $top){
-    $p = floor(($top + $bot) / 2);
-    if($array[$p] == $elem)
-        return $p;
-    if($bot > $top)
+    $middle = floor(($top + $bot) / 2);
+    if($array[$middle] == $elem)
+        return $middle;
+    if($bot >= $top)
         return $elem.' not found.';
     else {
 
-        if ($array[$p] < $elem)
-            return binary_search_recursive($elem, $array, $p + 1, $top);
+        if ($array[$middle] < $elem)
+            return binary_search_recursive($elem, $array, $middle + 1, $top);
         else
-            return binary_search_recursive($elem, $array, $bot, $p - 1);
+            return binary_search_recursive($elem, $array, $bot, $middle - 1);
     }
 }
 

@@ -14,7 +14,7 @@ function binary_search_iterative($elem, $array){
     $top = sizeof($array) -1;
     $bot = 0;
 
-    while($top >= $bot)
+    while($bot <= $top)
     {
         $p = floor(($top + $bot) / 2);
         if ($array[$p] < $elem)
